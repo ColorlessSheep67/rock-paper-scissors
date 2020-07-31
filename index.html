@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Rock-Paper-Scissors</title>
+    </head>
+    <body>
+        <h1>A Simple Rock-Paper-Scissors</h1>
+        <h3>Play it with the console open</h3>
+        <script>
+
+            let playerPoints = 0;
+            let computerPoints = 0;
+            let round = 0;
+            let mySelection;
+
+            function computerPlay(){
+                let selectionNumber = Math.floor(Math.random()*3);
+                let selection = "";
+                
+                (selectionNumber == 0) ? selection = "rock" :
+                (selectionNumber == 1) ? selection = "paper" :
+                                         selection = "scissors"; 
+
+                return selection;
+            }
+            
+            function playRound(playerSelection, computerSelection){
+
+                console.log("===================================================");
+
+                if(playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors"){
+
+                    round++;
+
+                    console.log("Round: "+round);
+
+                    if(playerSelection == computerSelection){
+                    console.log(playerSelection +" = "+computerSelection);  
+                    console.log("Tie!");
+
+                }else if(playerSelection == "rock" && computerSelection == "scissors"){
+                    playerPoints++;
+                    console.log(playerSelection +" > "+computerSelection);      
+                    console.log("You win");
+                }
+                else if(playerSelection == "paper" && computerSelection == "rock"){
+                    playerPoints++;
+                    console.log(playerSelection +" > "+computerSelection);    
+                    console.log("You win");
+                }else if(playerSelection == "scissors" && computerSelection == "paper"){
+                    playerPoints++;     
+                    console.log(playerSelection +" > "+computerSelection);  
+                    console.log("You win");
+                }else{
+                    computerPoints++;
+                    console.log(playerSelection +" < "+computerSelection); 
+                    console.log("You lose");              
+                }
+                }else{
+                    console.log("Please insert a valid object");
+                }
+                
+                console.log("You: "+playerPoints);
+                console.log("Computer: "+computerPoints);
+
+                console.log("===================================================");
+
+            }
+
+            function game(){
+                if(playerPoints > computerPoints){
+                     console.log("You Won");
+                }else if(playerPoints < computerPoints){
+                    console.log("You Lost");
+                }else{
+                    console.log("Tied");
+                }
+                console.log("You: "+playerPoints);
+                console.log("Computer: "+computerPoints);
+                }
+            
+            while(round < 5){
+                mySelection = prompt("Rock, Paper or Scissors","rock");
+                playRound(mySelection.toLowerCase(),computerPlay());
+
+            }
+
+            game();
+
+            
+
+        </script>
+    </body>
+
+</html>
