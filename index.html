@@ -5,7 +5,7 @@
     </head>
     <body>
         <h1>A Simple Rock-Paper-Scissors</h1>
-        <h3>Play it with the console open</h3>
+        <h3>Open the console and write " play() "</h3>
         <script>
 
             let playerPoints = 0;
@@ -77,15 +77,20 @@
                 }
                 console.log("You: "+playerPoints);
                 console.log("Computer: "+computerPoints);
-                }
-            
-            while(round < 5){
-                mySelection = prompt("Rock, Paper or Scissors","rock");
-                playRound(mySelection.toLowerCase(),computerPlay());
-
             }
 
-            game();
+            function play(){
+                while(round < 5){
+                mySelection = prompt("Rock, Paper or Scissors","rock");
+                playRound(mySelection.toLowerCase(),computerPlay());
+                }
+
+                game();
+            }
+
+            
+            
+            
 
             
 
